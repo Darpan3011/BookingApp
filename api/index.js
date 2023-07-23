@@ -11,6 +11,16 @@ import cors from "cors";
 const app = express();
 dotenv.config();
 
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", "'unsafe-inline'"], // Allowing inline resources, but unsafe, use carefully
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Allowing inline scripts and eval, also unsafe
+      // Add other directives as needed
+    },
+  })
+);
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
