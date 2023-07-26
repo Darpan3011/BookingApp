@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import helmet from "helmet";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
@@ -10,21 +9,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 const app = express();
-app.use(helmet());
-
-app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self';" + // Allow resources from the same domain
-    "script-src 'self' 'unsafe-inline';" + // Allow scripts from the same domain and inline scripts (unsafe!)
-    "style-src 'self';" + // Allow styles from the same domain
-    "img-src 'self' https://booking-app-wa41.vercel.app;" + // Allow images from the same domain and specific external URL
-    "object-src 'none';" + // Block Flash and other plugins
-    "base-uri 'self';" + // Restrict the base URI
-    "form-action 'self';" // Allow form submissions to the same domain
-  );
-  next();
-});
 dotenv.config();
 
 const connect = async () => {
