@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i",
+    "build": "node index.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev":  "nodemon index.js"
