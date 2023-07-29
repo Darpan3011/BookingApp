@@ -4,7 +4,7 @@ import im from '../../image/img.jpg'
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=Berlin,Madrid,London"
+    "https://fronted-f8ne.onrender.com/api/hotels/countByCity?cities=Berlin,Madrid,London"
   );
 
   return (

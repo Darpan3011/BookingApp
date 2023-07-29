@@ -3,7 +3,7 @@ import "./propertyList.css";
 import im from '../../image/img.jpg'
 
 const PropertyList = () => {
-  const { data, loading, error } = useFetch("/hotels/countByType");
+  const { data, loading, error } = useFetch("https://fronted-f8ne.onrender.com/api/hotels/countByType");
 
 
   const images = [
