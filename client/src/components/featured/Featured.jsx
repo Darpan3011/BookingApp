@@ -1,6 +1,8 @@
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
-import im from '../../image/img.jpg'
+import berlin from '../../image/berlin.jpg'
+import london from '../../image/london.jpg'
+import madrid from '../../image/madrid.jpg'
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
@@ -15,7 +17,7 @@ const Featured = () => {
         <>
           <div className="featuredItem">
             <img
-              src={im}
+              src={berlin}
               alt=""
               className="featuredImg"
             />
@@ -27,7 +29,7 @@ const Featured = () => {
 
           <div className="featuredItem">
             <img
-              src={im}
+              src={madrid}
               className="featuredImg"
             />
             <div className="featuredTitles">
@@ -37,7 +39,7 @@ const Featured = () => {
           </div>
           <div className="featuredItem">
             <img
-              src={im}
+              src={london}
               alt=""
               className="featuredImg"
             />
