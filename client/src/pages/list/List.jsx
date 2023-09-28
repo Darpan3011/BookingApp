@@ -25,6 +25,10 @@ const List = () => {
     reFetch();
   };
 
+  const handleChangeDestination = (e) => {
+    setDestination(e.target.value);
+  }
+
   return (
     <div>
       <Navbar />
@@ -35,7 +39,7 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input placeholder={destination} type="text" onChange={handleChangeDestination} />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
