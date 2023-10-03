@@ -2,8 +2,11 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import useFetch from "../../hooks/useFetch";
 
 const Navbar = () => {
+
+  const { loading } = useFetch("https://fronted-f8ne.onrender.com/api/hotels/countByType");
   const { user } = useContext(AuthContext);
 
   // Function to handle logout
@@ -16,6 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <div className={`loading ${loading ? 'show' : ''}`}>Please wait while data is being fetched</div>
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <span className="logo">Darpan's BookingApp</span>
