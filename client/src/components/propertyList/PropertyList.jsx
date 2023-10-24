@@ -1,17 +1,17 @@
 import useFetch from "../../hooks/useFetch";
 import "./propertyList.css";
-import im from '../../image/img.jpg'
+import apart from "../../image/apart.jpg";
+import cabin from "../../image/cabin.jpg";
+import hotel from "../../image/hotel.jpg";
+import resort from "../../image/resort.jpg";
+import villa from "../../image/villa.jpg";
 
 const PropertyList = () => {
-  const { data, loading } = useFetch("https://fronted-f8ne.onrender.com/api/hotels/countByType");
+  const { data, loading } = useFetch(
+    "https://fronted-f8ne.onrender.com/api/hotels/countByType"
+  );
 
-  const images = [
-    {im},
-    {im},
-    {im},
-    {im},
-    {im},
-  ];
+  const images = [hotel, apart, resort, villa, cabin];
   return (
     <div className="pList">
       {loading ? (
@@ -19,16 +19,14 @@ const PropertyList = () => {
       ) : (
         <>
           {data &&
-            images.map((img,i) => (
+            images.map((image, i) => (
               <div className="pListItem" key={i}>
-                <img
-                  src={img}
-                  alt=""
-                  className="pListImg"
-                />
+                <img src={image} alt="" className="pListImg" />
                 <div className="pListTitles">
                   <h1>{data[i]?.type}</h1>
-                  <h2>{data[i]?.count} {data[i]?.type}</h2>
+                  <h2>
+                    {data[i]?.count} {data[i]?.type}
+                  </h2>
                 </div>
               </div>
             ))}
